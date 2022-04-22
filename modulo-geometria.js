@@ -31,10 +31,11 @@ var mallaDeTriangulos;
 
 var filas=100;
 var columnas=100;
-var superficieADibujar="plano"; // "plano", "esfera", "tubosenoidal"
+var superficieActual;
 
-function crearGeometria(){
-        
+function crearGeometria(superficieADibujar){
+    console.log("CREANDO GEOMETRIA", superficieADibujar);
+    superficieActual = superficieADibujar;
     switch (superficieADibujar) {
         case "plano": 
             superficie3D = new Plano(3,3);
@@ -55,8 +56,10 @@ function crearGeometria(){
     
 }
 
-function dibujarGeometria(){
-
+function dibujarGeometria(superificeADibujar){
+    if (superificeADibujar !== superficieActual) {
+        crearGeometria(superificeADibujar);
+    }
     dibujarMalla(mallaDeTriangulos);
 
 }
