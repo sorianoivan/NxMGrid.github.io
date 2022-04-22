@@ -29,8 +29,8 @@
 var superficie3D;
 var mallaDeTriangulos;
 
-var filas=10;
-var columnas=10;
+var filas=100;
+var columnas=100;
 var superficieADibujar="plano"; // "plano", "esfera", "tubosenoidal"
 
 function crearGeometria(){
@@ -163,11 +163,11 @@ function generarSuperficie(superficie,filas,columnas){
             indexBuffer.push(i * verticesInRow + j);
             indexBuffer.push((i + 1) * verticesInRow + j);
         }
-        // Repeat values to change row. For some reason this isnt needed
-        /* if (i != filas - 1){
+        // Repeat values to change row.
+        if (i != filas - 1){
             indexBuffer.push(indexBuffer[indexBuffer.length - 1]);
             indexBuffer.push(indexBuffer[indexBuffer.length - 1] - columnas);
-        } */
+        }
     }
 
     // Creación e Inicialización de los buffers
